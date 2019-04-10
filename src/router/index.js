@@ -10,17 +10,17 @@ export default new Router({
     {
       path: '/login',
       name: 'Login',
-      component: () => import('../Login/login.vue')
+      component: () => import('../views/Login/login.vue')
     },
     {
       path: '/',
       name: 'Layout',
-      component: () => import('../Layout/index.vue'),
+      component: () => import('../views/Layout/index.vue'),
       children: [
         {
           path: 'home',
           name: 'Home',
-          component: () => import('../Home/home.vue')
+          component: () => import('../views/Home/home.vue')
         }
       ]
     }
