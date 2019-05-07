@@ -6,8 +6,8 @@ import './plugins/element.js'
 import './plugins/style.scss'
 import axios from 'axios'
 
+Vue.prototype.$axios = axios
 Vue.config.productionTip = false
-Vue.prototype.$request = axios
 new Vue({
   router,
   store,

@@ -16,12 +16,33 @@ export default new Router({
     {
       path: '/',
       name: 'Layout',
+      redirect: 'login',
       component: () => import('../views/Layout/index.vue'),
       children: [
         {
           path: 'home',
           name: 'Home',
           component: () => import('../views/Home/home.vue')
+        },
+        {
+          path: 'details',
+          name: 'Detail',
+          component: () => import('../views/Detail/detail.vue')
+        },
+        {
+          path: 'order',
+          name: 'OrderList',
+          component: () => import('../views/Order/order.vue')
+        },
+        {
+          path: 'list',
+          name: 'List',
+          component: () => import('../views/List/list.vue')
+        },
+        {
+          path: 'aboutOurs',
+          name: 'AboutOurs',
+          component: () => import('../views/Aboutour/aboutours.vue')
         }
       ]
     }

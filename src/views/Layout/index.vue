@@ -2,7 +2,8 @@
   <el-container>
     <el-header>
       <el-menu
-        :default-active="activeIndex"
+        router
+        :default-active="$router.path"
         class="el-menu-demo"
         mode="horizontal"
         @select="handleSelect"
@@ -10,25 +11,17 @@
         text-color="#fff"
         active-text-color="#ffd04b"
       >
-        <el-menu-item index="1">首页</el-menu-item>
-        <el-submenu index="2">
+        <el-menu-item index="/home">首页</el-menu-item>
+        <el-submenu index="/list">
           <template slot="title">演出分类</template>
-          <el-menu-item index="2-1">歌剧</el-menu-item>
-          <el-menu-item index="2-2">音乐</el-menu-item>
-          <el-menu-item index="2-3">舞蹈</el-menu-item>
-          <el-menu-item index="2-4">戏剧</el-menu-item>
-          <el-menu-item index="2-5">戏曲</el-menu-item>
-          <!-- <el-submenu index="2-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="2-4-1">选项1</el-menu-item>
-            <el-menu-item index="2-4-2">选项2</el-menu-item>
-            <el-menu-item index="2-4-3">选项3</el-menu-item>
-          </el-submenu>-->
+          <el-menu-item index="/list">歌剧</el-menu-item>
+          <el-menu-item index="">音乐</el-menu-item>
+          <el-menu-item index="">舞蹈</el-menu-item>
+          <el-menu-item index="">戏剧</el-menu-item>
+          <el-menu-item index="">戏曲</el-menu-item>
         </el-submenu>
-        <el-menu-item index="3">资讯动态</el-menu-item>
-        <el-menu-item index="4">
-          <a href="https://www.ele.me" target="_blank">关于我们</a>
-        </el-menu-item>
+        <el-menu-item index="/order">我的订单</el-menu-item>
+        <el-menu-item index="/aboutOurs">关于我们</el-menu-item>
         <el-menu-item class="admin">
           <el-dropdown>
             <i class="el-icon-setting" style="margin-right: 15px"></i>
@@ -46,22 +39,16 @@
     <el-main>
       <router-view></router-view>
     </el-main>
-    <el-footer>Footer</el-footer>
+    <!-- <el-footer>Footer</el-footer> -->
   </el-container>
 </template>
 
 <script>
-import { userName } from "../../api/http";
 export default {
   data() {
     return {
       activeIndex: "1"
     };
-  },
-  mounted() {
-    userName().then(res => {
-      console.log(res);
-    });
   },
   methods: {
     handleSelect(key, keyPath) {
@@ -87,13 +74,15 @@ export default {
 }
 
 .el-main {
-  background-color: #e9eef3;
+  /* background-color: #e9eef3; */
   color: #333;
   text-align: center;
   height: 100%;
 }
 
 .el-container {
+  width: 1280px;
+  margin: 0 auto;
   height: 100%;
 }
 .admin {
